@@ -373,9 +373,8 @@ function renderHistory() {
             </div>
         `;
         const btnXoa = document.createElement("button");
-        btnXoa.textContent = "Xóa";
-        btnXoa.style.backgroundColor = "red";
-        btnXoa.style.color = "white";
+btnXoa.textContent = "Xóa";
+btnXoa.className = "btn-action btn-delete";
         btnXoa.onclick = () => xoaChiTieu(index);
         li.appendChild(btnXoa);
         danhsachHistory.appendChild(li);
@@ -438,12 +437,11 @@ function timKiem() {
             let li = document.createElement("li");
             li.className = "history-item";
             li.innerHTML = `
-            <div class="history-item-content">
-                <p>${item.tienchitieu}</p>
-                <p>${item.ghichu}</p>
-                <span>${item.sotien}</span>
-            </div>
-            `;
+            ${item.ten} - Giới hạn: ${parseInt(item.gioiHan).toLocaleString()} VND
+            <button class="btn-action btn-edit" onclick="batDauSua(${index})">Sửa</button>
+            <button class="btn-action btn-delete" onclick="xoaDanhMuc(${index})">Xóa</button>
+        `;
+        
             danhsachHistory.appendChild(li);
         });
     }
@@ -515,17 +513,17 @@ document.getElementById("addBudget").addEventListener("click", function (e) {
     capNhatSoTienConLai();
     capNhatThongKe();
 });
-document.getElementById("logoutBtn").addEventListener("click", function () {
-    const confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất không?");
-    if (confirmLogout) {
-        // Đúng key đang dùng để lưu dữ liệu đăng nhập
-        localStorage.removeItem("userLogin");
-        alert("Bạn đã đăng xuất!");
-        setTimeout(() => {
-            window.location.href = "../authen/login.html";
-        }, 300); // Chuyển về trang đăng nhập
-    }
-}); 
+// document.getElementById("logoutBtn").addEventListener("click", function () {
+//     const confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất không?");
+//     if (confirmLogout) {
+//         // Đúng key đang dùng để lưu dữ liệu đăng nhập
+//         localStorage.removeItem("userLogin");
+//         alert("Bạn đã đăng xuất!");
+//         setTimeout(() => {
+//             window.location.href = "../authen/login.html";
+//         }, 300); // Chuyển về trang đăng nhập
+//     }
+// }); 
 
 // ======= DOM READY =======
 document.addEventListener("DOMContentLoaded", function () {
