@@ -93,19 +93,3 @@ function register(event) {
   registerForm.style.display = 'none';
   loginForm.style.display = 'block';
 }
-// Đăng xuất với thông báo xác nhận trước khi đăng xuất
-function logout() {
-  // Hiển thị hộp thoại xác nhận
-  const confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất không?");
-  
-  if (confirmLogout) {
-    // Nếu người dùng chọn 'OK', xóa thông tin đăng nhập
-    localStorage.removeItem("userLogin");
-    alert("Bạn đã đăng xuất thành công!");
-    window.location.href = "/authen"; // Chuyển hướng về trang đăng nhập hoặc trang chính của ứng dụng
-  } else {
-    // Nếu người dùng chọn 'Cancel', không làm gì cả
-    alert("Đăng xuất bị hủy.");
-  }
-}
-

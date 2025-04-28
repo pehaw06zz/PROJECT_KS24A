@@ -242,22 +242,12 @@ header {
     
     }
 }
-.pagination-btn {
-    padding: 10px;
-    margin: 5px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.pagination-btn:hover {
-    background-color: #ddd;
-}
-
-.pagination-btn.active {
-    background-color: #004af8; /* Màu xanh khi trang được chọn */
+.page-item.active .page-link {
+    background-color: #007bff; // xanh biển
     color: white;
-}
+    border-color: #007bff;
+  }
+  
 
 
 
