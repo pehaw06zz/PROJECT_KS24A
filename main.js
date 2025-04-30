@@ -457,43 +457,6 @@ function updateActivePage() {
 }
 
 
-// function goToPage(page) {
-//     currentPage = page;
-//     renderHistory();
-//     updateActivePage();
-// }
-
-// function updateActivePage() {
-//     const pages = document.querySelectorAll("#pagination .page-item");
-//     pages.forEach((item, index) => {
-//         item.classList.remove("active");
-//     });
-
-//     if (currentPage >= 1 && currentPage <= 3) {
-//         pages[currentPage - 1].classList.add("active");
-//     }
-// }
-
-// function goPrevious() {
-//     if (currentPage > 1) {
-//         currentPage--;
-//         renderHistory();
-//         updateActivePage();
-//     }
-// }
-
-// function goNext() {
-//     const month = document.getElementById("month").value;
-//     const filtered = historyList.filter(i => i.thang === month);
-//     const totalPages = Math.ceil(filtered.length / itemsPerPage);
-//     if (currentPage < totalPages) {
-//         currentPage++;
-//         renderHistory();
-//         updateActivePage();
-//     }
-// }
-
-
 // ======= Tìm kiếm và sắp xếp =======
 function timKiem() {
     const searchVal = document.getElementById("search").value.toLowerCase();
@@ -537,7 +500,7 @@ function capNhatThongKe() {
     for (let month in data) {
         const chi = data[month];
         const nganSach = parseInt(localStorage.getItem("budget_" + month)) || 0;
-        const trangThai = chi > nganSach ? "Vượt ngân sách" : "Ổn định";
+        const trangThai = chi > nganSach ? "Vượt ngân sách" : "Đạt";
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${month}</td>
