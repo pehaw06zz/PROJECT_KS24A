@@ -1,227 +1,6 @@
-// let danhsachHistory = document.getElementById("danhSachHistory");
 
-// function getFormData(formEL) {
-//     let data = {};
-//     for (element of formEL.elements) {
-//         if (element.name != "") {
-//             data[element.name] = element.value;
-//         }
-//     }
-//     return data;
-// }
-    
-// /* Lib validate */
-// function validateEmail(email) {
-//     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     return re.test(email);
-// }
-
-// /* local */
-// function saveUserListToLocal(userList) {
-//     localStorage.setItem("userList", JSON.stringify(userList));
-// }
-
-// /* authen account */
-// function getUserLoginData() {
-//     let userData = JSON.parse(localStorage.getItem("userLogin"));
-//     return userData;
-// }
-
-// function handleAccountAction(action) {
-//     if (action === "login") {
-//         window.location.href = "index.html";
-//     } else if (action === "logout") {
-//         localStorage.removeItem("userLogin");
-//         alert("Bạn đã đăng xuất!");
-//         window.location.href = "/authen/"; // Chuyển hướng đến trang đăng nhập sau khi đăng xuất
-//     }
-// }
-
-// const historyList = [
-//     {
-//         tienchitieu: "Tiền phòng",
-//         ghichu: "Đóng tiền phòng tháng 3",
-//         sotien: "2,000,000 VND"
-//     },
-//     {
-//         tienchitieu: "Tiền điện",
-//         ghichu: "Đóng tiền điện tháng 3",
-//         sotien: "500,000 VND"
-//     },
-//     {
-//         tienchitieu: "Tiền nước",
-//         ghichu: "Đóng tiền nước tháng 3",
-//         sotien: "300,000 VND"
-//     },
-//     {
-//         tienchitieu: "Tiền ăn",
-//         ghichu: "Mua đồ ăn cho cả tháng",
-//         sotien: "1,500,000 VND"
-//     },
-// ];
-
-// function themChiTieu() {
-//     const soTien = document.getElementById("soTien").value;
-//     const tenChiTieu = document.getElementById("tenChiTieu").value;
-//     const ghiChu = document.getElementById("ghiChu").value;
-
-//     if (!soTien || !tenChiTieu) {
-//         alert("Vui lòng nhập đủ thông tin");
-//         return;
-//     }
-
-//     const newItem = {
-//         tienchitieu: tenChiTieu,
-//         ghichu: ghiChu,
-//         sotien: `${parseInt(soTien).toLocaleString()} VND`
-//     };
-
-//     const currentHistory = JSON.parse(localStorage.getItem("historyList")) || [];
-//     currentHistory.push(newItem);
-//     localStorage.setItem("historyList", JSON.stringify(currentHistory));
-
-//     renderHistory(document.getElementById("danhSachHistory")); //
-//     renderHistory(danhsachHistory);
-// }
-
-
-// function timKiem() {
-//     const searchVal = document.getElementById("search").value.toLowerCase();
-//     const history = JSON.parse(localStorage.getItem("historyList")) || [];
-
-//     const filtered = history.filter(item =>
-//         item.tienchitieu.toLowerCase().includes(searchVal) ||
-//         item.ghichu.toLowerCase().includes(searchVal)
-//     );
-
-//     danhsachHistory.innerHTML = "";
-//     filtered.forEach(item => {
-//         let li = document.createElement("li");
-//         li.className = "history-item";
-//         li.innerHTML = `
-//         <div class="history-item-content">
-//             <p>${item.tienchitieu}</p>
-//             <p>${item.ghichu}</p>
-//             <span>${item.sotien}</span>
-//         </div>
-//         `;
-//         danhsachHistory.appendChild(li);
-//     });
-// }
-
-// function sapXepTheoGia() {
-//     const history = JSON.parse(localStorage.getItem("historyList")) || [];
-//     history.sort((a, b) => {
-//         const giaA = parseInt(a.sotien.replace(/[^0-9]/g, ""));
-//         const giaB = parseInt(b.sotien.replace(/[^0-9]/g, ""));
-//         return giaA - giaB;
-//     });
-//     localStorage.setItem("historyList", JSON.stringify(history));
-//     renderHistory(); // Gọi lại hàm renderHistory sau khi đã sắp xếp
-// }
-
-
-// function renderHistory() {
-//     const historyList = JSON.parse(localStorage.getItem("historyList")) || [];
-//     const danhSachHistory = document.getElementById("danhSachHistory");
-
-//     // Làm mới danh sách
-//     danhSachHistory.innerHTML = ""; // Xóa nội dung cũ
-
-//     historyList.forEach((item, index) => {
-//         const li = document.createElement("li");
-//         li.textContent = item; // Hiển thị nội dung item
-        
-//         // Tạo nút "Xóa"
-//         const btnXoa = document.createElement("button");
-//         btnXoa.textContent = "Xóa";
-//         btnXoa.style.backgroundColor = "red";
-//         btnXoa.style.color = "white";
-//         btnXoa.onclick = function() {
-//             xoaChiTieu(index); // Gọi hàm xoaChiTieu với index
-//         };
-
-//         li.appendChild(btnXoa); // Thêm nút "Xóa" vào li
-//         danhSachHistory.appendChild(li); // Thêm li vào danh sách
-//     });
-// }
-
-
-
-
-// function xoaChiTieu(index) {
-//     const currentHistory = JSON.parse(localStorage.getItem("historyList")) || [];
-//     if (confirm("Bạn có chắc muốn xóa mục này không?")) {
-//         currentHistory.splice(index, 1);
-//         localStorage.setItem("historyList", JSON.stringify(currentHistory));
-//         renderHistory();
-//     }
-// }
-// // Khi DOM đã sẵn sàng
-// document.addEventListener("DOMContentLoaded", function () {
-//     // Gắn sự kiện click cho nút
-//     document.getElementById("btnThemDanhMuc").addEventListener("click", themDanhMuc);
-  
-//     // Hiển thị danh sách đã lưu
-//     hienThiDanhMuc();
-//   });
-  
-//   function themDanhMuc() {
-//     const input = document.getElementById("tenDanhMuc");
-//     const ten = input.value.trim();
-  
-//     // Kiểm tra rỗng
-//     if (ten === "") {
-//       alert("Vui lòng nhập tên danh mục!");
-//       return;
-//     }
-  
-//     // Lấy danh sách cũ từ localStorage hoặc rỗng
-//     const ds = JSON.parse(localStorage.getItem("danhMuc")) || [];
-  
-//     // Thêm danh mục mới
-//     ds.push(ten);
-  
-//     // Lưu lại vào localStorage
-//     localStorage.setItem("danhMuc", JSON.stringify(ds));
-  
-//     // Xóa ô input
-//     input.value = "";
-  
-//     // Hiển thị lại danh sách
-//     hienThiDanhMuc();
-//   }
-  
-//   function hienThiDanhMuc() {
-//     const danhSachUl = document.getElementById("dsDanhMuc");
-//     const ds = JSON.parse(localStorage.getItem("danhMuc")) || [];
-  
-//     // Xóa danh sách cũ
-//     danhSachUl.innerHTML = "";
-  
-//     // Hiển thị từng danh mục
-//     ds.forEach(function (ten) {
-//       const li = document.createElement("li");
-//       li.textContent = ten;
-//       danhSachUl.appendChild(li);
-//     });
-//   }
-  
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     danhsachHistory = document.getElementById("danhSachHistory");
-
-//     if (!localStorage.getItem("historyList")) {
-//         localStorage.setItem("historyList", JSON.stringify([]));
-//     }
-
-//     renderHistory(); // Truyền vào phần tử cần render
-// });
-
-// Khai báo phần tử toàn cục
-// Lưu user
-// ======= TÀI KHOẢN =======
 // ======= Quản lý tài khoản =======
+const username = localStorage.getItem("userLogin");
 function handleAccountAction(action) {
     if (action === "login") {
         window.location.href = "index.html";
@@ -390,33 +169,6 @@ function renderHistory() {
     updateActivePage();
 }
 
-// function renderHistory() {
-//     const danhSachHistory = document.getElementById("danhSachHistory");
-//     const month = document.getElementById("month").value;
-//     const filtered = historyList.filter(i => i.thang === month);
-//     const totalPages = Math.ceil(filtered.length / itemsPerPage);
-
-//     const start = (currentPage - 1) * itemsPerPage;
-//     const paginated = filtered.slice(start, start + itemsPerPage);
-
-//     danhSachHistory.innerHTML = "";
-//     paginated.forEach((item, index) => {
-//         const li = document.createElement("li");
-//         li.className = "list-group-item d-flex justify-content-between align-items-center";
-//         li.innerHTML = `
-//             <div>
-//                 <b>${item.tienchitieu}</b><br/>
-//                 ${item.ghichu}<br/>
-//                 ${item.sotien}
-//             </div>
-//             <div>
-                
-//                 <button onclick="xoaChiTieu(${start + index})" class="btn btn-sm btn-danger">Xóa</button>
-//             </div>
-//         `;
-//         danhSachHistory.appendChild(li);
-//     });
-// }
 let currentPage = 1;
 
 function goToPage(page) {
@@ -471,11 +223,44 @@ function timKiem() {
     historyList = result;
     renderHistory();
 }
+function timKiemGiaoDich() {
+    const tuKhoa = document.getElementById("searchInput").value.trim().toLowerCase();
+    const month = document.getElementById("month").value;
+
+    let ketQua = historyList.filter(i => i.thang === month);
+
+    if (tuKhoa !== "") {
+        ketQua = ketQua.filter(i =>
+            i.tienchitieu.toLowerCase().includes(tuKhoa) ||
+            i.ghichu.toLowerCase().includes(tuKhoa) ||
+            i.sotien.toLowerCase().includes(tuKhoa)
+        );
+    }
+
+    // render kết quả tìm kiếm
+    renderHistoryList(ketQua);
+}
+function renderHistoryList(list) {
+    const danhSachHistory = document.getElementById("danhSachHistory");
+    danhSachHistory.innerHTML = "";
+
+    list.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <strong>${item.tienchitieu}</strong> - ${item.sotien} <br/>
+            Ghi chú: ${item.ghichu}
+            <button class="btn btn-sm btn-danger" onclick="xoaChiTieu(${index})">Xóa</button>
+        `;
+        danhSachHistory.appendChild(li);
+    });
+}
+
 
 function sapXepTheoGia() {
     historyList.sort((a, b) => parseInt(a.sotien.replace(/[^0-9]/g, '')) - parseInt(b.sotien.replace(/[^0-9]/g, '')));
     renderHistory();
 }
+
 
 // ======= Ngân sách và thống kê =======
 function capNhatSoTienConLai() {

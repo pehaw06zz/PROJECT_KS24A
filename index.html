@@ -71,8 +71,11 @@
       <div class="content_left">
         <h4 style="color: red;">Lịch sử giao dịch</h4>
         <div class="history_form">
-          <input id="search" type="text" placeholder="Tìm nội dung" class="widthhistory"/>
-          <button style="background-color: blue;" onclick="timKiem()" class="widthhistory">Tìm</button>
+          <!-- <input id="search" type="text" placeholder="Tìm nội dung" class="widthhistory"/> -->
+          <!-- <button style="background-color: blue;" onclick="timKiem()" class="widthhistory">Tìm</button> -->
+          <button onclick="timKiemGiaoDich()" class="btn btn-primary">Tìm kiếm</button>
+          <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+
           <button onclick="sapXepTheoGia()" class="widthhistory">Sắp xếp theo giá</button>
         </div>
         <ul id="danhSachHistory" class="listHistory"></ul>

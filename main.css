@@ -61,6 +61,30 @@ body{height:auto;background-color:#f4f6f8}header{width:100%;height:60px;display:
 .btn-delete:hover {
   background-color: #e60000;
 }
+.table-lich-su {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+    white-space: nowrap;      
+    overflow: hidden;
+    text-overflow: ellipsis;   
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  th {
+    background-color: #f0f0f0;
+  }
+}
+
 
 /* Phần danh mục & lịch sử giao dịch có padding đẹp hơn */
 #danhSachqldm li,
